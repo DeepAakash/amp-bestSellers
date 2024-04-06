@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html ⚡4email data-css-strict>
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script
+      async
+      custom-element="amp-bind"
+      src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
+    ></script>
+    <script
+      async
+      custom-element="amp-list"
+      src="https://cdn.ampproject.org/v0/amp-list-0.1.js"
+    ></script>
+    <script
+      async
+      custom-template="amp-mustache"
+      src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
+    ></script>
+    <style amp4email-boilerplate>
+      body {
+        visibility: hidden;
+      }
+    </style>
+    <style amp-custom>
+      *:focus {
+        outline: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      p,
+      ul li,
+      ol li {
+        font-family: tahoma, verdana, segoe, sans-serif;
+        line-height: 150%;
+      }
+
+      .roulette {
+        position: relative;
+        margin: 0 auto 20px;
+      }
+
+      .roulette span {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .roulette .visible-img {
+        visibility: visible;
+      }
+
+      .roulette .hidden-img {
+        visibility: hidden;
+      }
+
+      .hidden-text {
+        display: none;
+      }
+
+      .visible-text {
+        display: block;
+      }
+
+      #myList .visible-text p {
+        color: #fff;
+        font-size: 16px;
+        padding-bottom: 5px;
+      }
+
+      .amp-form-submit-success .hidden {
+        display: none;
+      }
+
+      .button {
+        background: #004a2b;
+        display: inline-block;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 24px;
+        color: #fff;
+        border-radius: 5px;
+        border-style: solid;
+        border-color: #004a2b;
+        border-width: 15px;
+        text-align: center;
+        cursor: pointer;
+        min-width: 280px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .roulette amp-img,
+      .roulette img {
+        width: 464px;
+        height: auto;
+      }
+
+      #myList div {
+        position: relative;
+        height: auto;
+      }
+
+      #myList .roulette {
+        width: 464px;
+        height: 464px;
+      }
+
+      .roulette .result span {
+        display: block;
+        color: #fff;
+        font-size: 36px;
+        position: absolute;
+        right: auto;
+        top: 216px;
+        left: 55px;
+        width: 108px;
+        height: 20px;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .roulette .anim {
+        transition-duration: 18s;
+        transition-timing-function: linear;
+        transform: rotate(4360deg);
+      }
+
+      @media only screen and (max-width: 600px) {
+        .roulette amp-img,
+        .roulette img {
+          width: 260px;
+          height: auto;
+        }
+
+        #myList .roulette {
+          max-width: 260px;
+          max-height: 260px;
+          left: 50%;
+          margin-left: -130px;
+        }
+
+        .roulette .result {
+          max-width: 260px;
+          max-height: 260px;
+          left: 50%;
+          margin-left: -130px;
+        }
+
+        .roulette .result span {
+          top: 114px;
+          left: 23px;
+          width: 70px;
+          font-size: 22px;
+        }
+
+        #myList {
+          max-height: 520px;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="word-spacing: normal; background-color: #fff">
+    {% raw %}
+    <div style="background-color: #fff">
+      <div
+        style="
+          background: #fff;
+          background-color: #fff;
+          margin: 0 auto;
+          max-width: 600px;
+        "
+      >
+        <table
+          align="center"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          role="presentation"
+          style="background: #fff; background-color: #fff; width: 100%"
+        >
+          <tbody>
+            <tr>
+              <td
+                style="
+                  direction: ltr;
+                  font-size: 0;
+                  padding: 0;
+                  padding-bottom: 0;
+                  padding-left: 0;
+                  padding-right: 0;
+                  padding-top: 0;
+                  text-align: center;
+                "
+              >
+                <div
+                  style="
+                    background: #fff;
+                    background-color: #fff;
+                    margin: 0 auto;
+                    max-width: 600px;
+                  "
+                >
+                  <table
+                    align="center"
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="
+                      background: #fff;
+                      background-color: #fff;
+                      width: 100%;
+                    "
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          align="center"
+                          style="
+                            font-size: 0px;
+                            padding-top: 30px;
+                            padding-bottom: 30px;
+                          "
+                        >
+                          <table
+                            border="0"
+                            cellpadding="0"
+                            cellspacing="0"
+                            role="presentation"
+                            style="border-collapse: collapse; border-spacing: 0"
+                          >
+                            <tbody>
+                              <tr>
+                                <td style="width: 300px">
+                                  <a
+                                    target="_blank"
+                                    href="https://www.vahdam.com/?utm_source=webengage&utm_medium=email&utm_campaign=apr05"
+                                  >
+                                    <amp-img
+                                      class="logo"
+                                      src="https://cdn.shopify.com/s/files/1/2675/9476/files/vahdam_logo_wo_fa_1_9dfbf170-f3a0-474e-9132-82d9bedae765.png?v=1700643195"
+                                      alt
+                                      style="display: block"
+                                      width="295"
+                                      height="73"
+                                      layout="responsive"
+                                    >
+                                    </amp-img>
+                                  </a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div
+                  style="
+                    background: #fbf6e3;
+                    background-color: #fbf6e3;
+                    margin: 0 auto;
+                    max-width: 600px;
+                  "
+                >
+                  <table
+                    align="center"
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="
+                      background: #fbf6e3;
+                      background-color: #fbf6e3;
+                      width: 100%;
+                    "
+                  >
+                    <tbody>
+                      <tr>
+                        <td align="center" style="font-size: 0px">
+                          <a
+                            target="_blank"
+                            href="https://www.vahdam.com/collections/best-sellers?utm_source=webengage&utm_medium=email&utm_campaign=apr05"
+                          >
+                            <amp-img
+                              class="bestsellers"
+                              src="https://cdn.shopify.com/s/files/1/2675/9476/files/First-Fold-5TH-APRIL-US.gif?v=1712316024"
+                              alt
+                              style="display: block"
+                              width="600"
+                              height="1060"
+                              layout="responsive"
+                            >
+                            </amp-img>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div
+                  style="
+                    background-image: url(https://cdn.shopify.com/s/files/1/2675/9476/files/background.jpg?v=1712328234);
+                    background-color: #fbf6e3;
+                    margin: 0 auto;
+                    max-width: 600px;
+                  "
+                >
+                  <table
+                    align="center"
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    role="presentation"
+                    style="
+                      background: url(https://cdn.shopify.com/s/files/1/2675/9476/files/background.jpg?v=1712328234);
+                      background-color: #fbf6e3;
+                      width: 100%;
+                    "
+                  >
+                    <tbody>
+                      <tr>
+                        <td align="center" style="font-size: 0px; height: 70px">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" style="font-size: 0px">
+                          <div style="margin: 0 auto; max-width: 500px">
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                              <tr class="es-visible-amp-html-only">
+                                <td class="es-p20t" style="max-width: 500px">
+                                  <amp-img
+                                    class="bestsellers"
+                                    src="https://cdn.shopify.com/s/files/1/2675/9476/files/spin_title.png?v=1712328233"
+                                    alt
+                                    style="display: block"
+                                    width="501"
+                                    height="108"
+                                    layout="responsive"
+                                  >
+                                  </amp-img>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" style="font-size: 0px; height: 20px">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" style="font-size: 0px">
+                          <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr class="es-visible-amp-html-only">
+                              <td class="es-p20t">
+                                <amp-list
+                                  id="myList"
+                                  style="text-align: center"
+                                  width="auto"
+                                  height="630px"
+                                  layout="fixed-height"
+                                  src="https://cdn.shopify.com/s/files/1/2675/9476/files/amp-json-bfcm-apr05.txt?v=1712311073"
+                                >
+                                  <template type="amp-mustache">
+                                    <div class="roulette">
+                                      <span
+                                        id="roulette-img"
+                                        [class]="wish == null ? 'visible-img' : 'hidden-img'"
+                                      >
+                                        <amp-img
+                                          layout="responsive"
+                                          src="https://cdn.shopify.com/s/files/1/2675/9476/files/Frame_3_1.png?v=1712310948"
+                                          alt
+                                          width="{{width}}"
+                                          height="{{height}}"
+                                        >
+                                        </amp-img>
+                                      </span>
+                                      {{#resultImg}}
+                                      <span
+                                        [class]="wish !={{id}} ? 'hidden-img result' : 'visible-img result'"
+                                        class="hidden-img"
+                                        style="width:{{width}}px;height:{{height}}px;background: url(https://cdn.shopify.com/s/files/1/2675/9476/files/FINAL_RESULT_1.png?v=1712310948) no-repeat 0 0;background-size:contain"
+                                      >
+                                        <span> {{title}}% </span>
+                                      </span>
+                                      {{/resultImg}} {{#arrowImg}}
+                                      <span class="arrow">
+                                        <amp-img
+                                          layout="responsive"
+                                          src="https://cdn.shopify.com/s/files/1/2675/9476/files/spiner-point.png?v=1690444110"
+                                          alt
+                                          width="{{width}}"
+                                          height="{{height}}"
+                                        >
+                                        </amp-img>
+                                      </span>
+                                      {{/arrowImg}}
+                                    </div>
+                                    <button
+                                      class="button"
+                                      id="run"
+                                      on="tap:AMP.setState({wish:null}),roulette-img.toggleClass(class='anim', force=true), stop.show, run.hide"
+                                    >
+                                      START
+                                    </button>
+                                    <button
+                                      class="button"
+                                      id="stop"
+                                      hidden
+                                      on="tap:AMP.setState({wish: floor(random() * floor( {{resultTotal}} )+1)}), stop.hide,info.show,roulette-img.toggleClass(class='anim', force=false), stop.hide, info.show, claimreward.show"
+                                    >
+                                      STOP
+                                    </button>
+                                    <div
+                                      id="info"
+                                      hidden
+                                      style="width: 80%; margin: 0 auto 20px"
+                                    >
+                                      <table
+                                        cellpadding="0"
+                                        cellspacing="0"
+                                        width="100%"
+                                        bgcolor="#4E4E4E"
+                                        style="
+                                          background-color: #4e4e4e;
+                                          border-radius: 5px;
+                                          border-collapse: separate;
+                                        "
+                                      >
+                                        <tr>
+                                          <td
+                                            align="center"
+                                            class="es-p25t es-p20b es-p35r es-p35l"
+                                          >
+                                            {{#resultImg}}
+                                            <div
+                                              [class]="wish !={{id}} ? 'hidden-text' : 'visible-text'"
+                                              class="hidden-text"
+                                            >
+                                              <p>
+                                                Great! Use promo code
+                                                <span
+                                                  style="
+                                                    font-size: 20px;
+                                                    font-weight: bold;
+                                                  "
+                                                >
+                                                  BYBDG{{title}}
+                                                </span>
+                                                to get your {{title}}% discount.
+                                              </p>
+                                            </div>
+                                            {{/resultImg}}
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </div>
+                                    <a
+                                      id="claimreward"
+                                      href="https://www.vahdam.com/collections/best-sellers?utm_source=webengage&utm_medium=email&utm_campaign=apr05"
+                                      target="_blank"
+                                      class="button"
+                                      hidden
+                                      >Claim Reward</a
+                                    >
+                                  </template>
+                                </amp-list>
+                                {% endraw %}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center" style="font-size: 0px; height: 50px">
+                          &nbsp;
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
