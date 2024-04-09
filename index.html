@@ -8,16 +8,6 @@
       custom-element="amp-bind"
       src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
     ></script>
-    <script
-      async
-      custom-element="amp-list"
-      src="https://cdn.ampproject.org/v0/amp-list-0.1.js"
-    ></script>
-    <script
-      async
-      custom-template="amp-mustache"
-      src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
-    ></script>
     <style amp4email-boilerplate>
       body {
         visibility: hidden;
@@ -132,6 +122,11 @@
         transform: rotate(4360deg);
       }
 
+      .start{
+        display: flex;
+        justify-content: center;
+      }
+
       @media only screen and (max-width: 600px) {
         .roulette amp-img,
         .roulette img {
@@ -168,6 +163,15 @@
   </head>
 
   <body style="word-spacing: normal; background-color: #fff">
+    <amp-state id="discount">
+      <script type="application/json">
+        {
+          "values": [5, 10, 15, 5, 10],
+          "wish": -1,
+          "spinner": 1
+        }
+      </script>
+    </amp-state>
     {% raw %}
     <div style="background-color: #fff">
       <div
@@ -246,7 +250,7 @@
                                   >
                                     <amp-img
                                       class="logo"
-                                      src="https://cdn.shopify.com/s/files/1/2675/9476/files/vahdam_logo_wo_fa_1_9dfbf170-f3a0-474e-9132-82d9bedae765.png?v=1700643195"
+                                      src="https://cdn.shopify.com/s/files/1/2675/9476/files/LOGO_0f96d0e3-1884-44d0-b52c-f3b80f47055d.jpg?v=1712684061"
                                       alt
                                       style="display: block"
                                       width="295"
@@ -294,11 +298,11 @@
                           >
                             <amp-img
                               class="bestsellers"
-                              src="https://cdn.shopify.com/s/files/1/2675/9476/files/First-Fold-5TH-APRIL-US.gif?v=1712316024"
+                              src="https://cdn.shopify.com/s/files/1/2675/9476/files/First-Fold-5TH-APRIL-US-ezgif.com-crop.gif?v=1712684062"
                               alt
                               style="display: block"
                               width="600"
-                              height="1060"
+                              height="765"
                               layout="responsive"
                             >
                             </amp-img>
@@ -364,57 +368,55 @@
                       </tr>
                       <tr>
                         <td align="center" style="font-size: 0px">
-                          <table cellpadding="0" cellspacing="0" width="100%">
+                          <table cellpadding="0" cellspacing="0" width="100%" id="myList">
                             <tr class="es-visible-amp-html-only">
                               <td class="es-p20t">
-                                <amp-list
-                                  id="myList"
-                                  style="text-align: center"
-                                  width="auto"
-                                  height="630px"
-                                  layout="fixed-height"
-                                  src="https://cdn.shopify.com/s/files/1/2675/9476/files/amp-json-bfcm-apr05.txt?v=1712311073"
-                                >
-                                  <template type="amp-mustache">
-                                    <div class="roulette">
-                                      <span
-                                        id="roulette-img"
-                                        [class]="wish == null ? 'visible-img' : 'hidden-img'"
+                                  <div class="roulette">
+                                    <span
+                                      id="roulette-img"
+                                      [class]="discount.spinner != 3 ? 'visible-img' : 'hidden-img'"
+                                    >
+                                      <amp-img
+                                        layout="responsive"
+                                        src="https://cdn.shopify.com/s/files/1/2675/9476/files/Frame_3_1.png?v=1712310948"
+                                        alt
+                                        width="464"
+                                        height="464"
                                       >
-                                        <amp-img
-                                          layout="responsive"
-                                          src="https://cdn.shopify.com/s/files/1/2675/9476/files/Frame_3_1.png?v=1712310948"
-                                          alt
-                                          width="{{width}}"
-                                          height="{{height}}"
-                                        >
-                                        </amp-img>
-                                      </span>
-                                      {{#resultImg}}
+                                      </amp-img>
+                                    </span>
+                                    <span
+                                      [class]="discount.spinner != 3 ? 'hidden-img result' : 'visible-img result'"
+                                      class="hidden-img"
+                                      style="
+                                        width: 464px;
+                                        height: 464px;
+                                        background: url(https://cdn.shopify.com/s/files/1/2675/9476/files/FINAL_RESULT_1.png?v=1712310948)
+                                          no-repeat 0 0;
+                                        background-size: contain;
+                                      "
+                                    >
                                       <span
-                                        [class]="wish !={{id}} ? 'hidden-img result' : 'visible-img result'"
-                                        class="hidden-img"
-                                        style="width:{{width}}px;height:{{height}}px;background: url(https://cdn.shopify.com/s/files/1/2675/9476/files/FINAL_RESULT_1.png?v=1712310948) no-repeat 0 0;background-size:contain"
+                                        [text]="discount.values[discount.wish] + '%'"
                                       >
-                                        <span> {{title}}% </span>
                                       </span>
-                                      {{/resultImg}} {{#arrowImg}}
-                                      <span class="arrow">
-                                        <amp-img
-                                          layout="responsive"
-                                          src="https://cdn.shopify.com/s/files/1/2675/9476/files/spiner-point.png?v=1690444110"
-                                          alt
-                                          width="{{width}}"
-                                          height="{{height}}"
-                                        >
-                                        </amp-img>
-                                      </span>
-                                      {{/arrowImg}}
-                                    </div>
+                                    </span>
+                                    <span class="arrow">
+                                      <amp-img
+                                        layout="responsive"
+                                        src="https://cdn.shopify.com/s/files/1/2675/9476/files/spiner-point.png?v=1690444110"
+                                        alt
+                                        width="464"
+                                        height="464"
+                                      >
+                                      </amp-img>
+                                    </span>
+                                  </div>
+                                  <div class="start">
                                     <button
                                       class="button"
                                       id="run"
-                                      on="tap:AMP.setState({wish:null}),roulette-img.toggleClass(class='anim', force=true), stop.show, run.hide"
+                                      on="tap:AMP.setState({ discount: { spinner: 2 } }), roulette-img.toggleClass(class='anim', force=true), stop.show, run.hide"
                                     >
                                       START
                                     </button>
@@ -422,54 +424,44 @@
                                       class="button"
                                       id="stop"
                                       hidden
-                                      on="tap:AMP.setState({wish: floor(random() * floor( {{resultTotal}} )+1)}), stop.hide,info.show,roulette-img.toggleClass(class='anim', force=false), stop.hide, info.show, claimreward.show"
+                                      on="tap:AMP.setState({ discount: { wish: floor(random() * 5), spinner: 3 } }), stop.hide, info.show, roulette-img.toggleClass(class='anim', force=false), stop.hide, info.show, claimreward.show"
                                     >
                                       STOP
                                     </button>
-                                    <div
-                                      id="info"
-                                      hidden
-                                      style="width: 80%; margin: 0 auto 20px"
+                                  </div>
+                                  <div
+                                    id="info"
+                                    hidden
+                                    style="width: 80%; margin: 0 auto 20px"
+                                  >
+                                    <table
+                                      cellpadding="0"
+                                      cellspacing="0"
+                                      width="100%"
+                                      bgcolor="#4E4E4E"
+                                      style="
+                                        background-color: #4e4e4e;
+                                        border-radius: 5px;
+                                        border-collapse: separate;
+                                      "
                                     >
-                                      <table
-                                        cellpadding="0"
-                                        cellspacing="0"
-                                        width="100%"
-                                        bgcolor="#4E4E4E"
-                                        style="
-                                          background-color: #4e4e4e;
-                                          border-radius: 5px;
-                                          border-collapse: separate;
-                                        "
-                                      >
-                                        <tr>
-                                          <td
-                                            align="center"
-                                            class="es-p25t es-p20b es-p35r es-p35l"
-                                          >
-                                            {{#resultImg}}
-                                            <div
-                                              [class]="wish !={{id}} ? 'hidden-text' : 'visible-text'"
-                                              class="hidden-text"
-                                            >
-                                              <p>
-                                                Great! Use promo code
-                                                <span
-                                                  style="
-                                                    font-size: 20px;
-                                                    font-weight: bold;
-                                                  "
-                                                >
-                                                  BYBDG{{title}}
-                                                </span>
-                                                to get your {{title}}% discount.
-                                              </p>
-                                            </div>
-                                            {{/resultImg}}
-                                          </td>
-                                        </tr>
-                                      </table>
-                                    </div>
+                                    <tr>
+                                      <td align="center" class="es-p25t es-p20b es-p35r es-p35l">
+                                        <div [class]="discount.wish == -1 ? 'hidden-text' : 'visible-text'" class="hidden-text">
+                                          <p>
+                                            Great! Use promo code
+                                            <span style="font-size: 20px; font-weight: bold;">
+                                              BYBDG<span [text]="discount.values[discount.wish]"></span>
+                                            </span>
+                                            to get your
+                                            <span [text]="discount.values[discount.wish] + '%'"></span> discount.
+                                          </p>
+                                        </div>
+                                      </td>
+                                    </tr>                                    
+                                    </table>
+                                  </div>
+                                  <div class="start">
                                     <a
                                       id="claimreward"
                                       href="https://www.vahdam.com/collections/best-sellers?utm_source=webengage&utm_medium=email&utm_campaign=apr05"
@@ -478,8 +470,7 @@
                                       hidden
                                       >Claim Reward</a
                                     >
-                                  </template>
-                                </amp-list>
+                                  </div>
                                 {% endraw %}
                               </td>
                             </tr>
@@ -487,7 +478,7 @@
                         </td>
                       </tr>
                       <tr>
-                        <td align="center" style="font-size: 0px; height: 50px">
+                        <td align="center" style="font-size: 0px; height: 100px">
                           &nbsp;
                         </td>
                       </tr>
